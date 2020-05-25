@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Semantic UI CDN linkit-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <!-- oma css tiedosto -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Junatiedot</title>
+</head>
+<body>
+    <!--säiliö-->
+    <div class="ui container">
+
+        <h3>Aseman junatiedot</h3>
+
+        <!--Junien haku-->
+        <div class="ui form">
+            <div class="field">
+                <label>Hae aseman nimellä</label>
+                    <div class="ui icon input">
+                        <input type="text" id="searchInput">
+                        <i class="x link icon"></i>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Junat taulukossa-->
+        <div class="junat">
+            <div class="ui top attached tabular menu">
+                <a class="item active" data-tab="saapuvat">Saapuvat</a>
+                <a class="item" data-tab="lähtevät">Lähtevät</a>
+            </div>
+                <div class="ui bottom attached tab segment active" data-tab="saapuvat">
+                    <table class="ui striped table" id="trainTableArriving">
+                        <thead>
+                            <tr id="headColor">
+                                <th>Juna</th>
+                                <th>Lähtöasema</th>
+                                <th>Pääteasema</th>
+                                <th>Saapuu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="lähtevät">
+                    <table class="ui striped table" id="trainTableDeparting">
+                        <thead>
+                            <tr id="headColor">
+                                <th>Juna</th>
+                                <th>Lähtöasema</th>
+                                <th>Pääteasema</th>
+                                <th>Lähtee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                </div>
+        </div>
+    </div>
+
+    <!-- oma ulkoinen js-tiedosto-->
+    <script src="main.js"></script>
+
+</body>
+</html>
