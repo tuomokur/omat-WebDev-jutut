@@ -1,0 +1,33 @@
+/*marginit bodylle ja taulukon diville*/
+body{
+    margin-top: 30px;
+}
+
+.junat{
+    margin-top: 30px;
+}
+
+/*otsikko*/
+h3{
+    background-color: #0fc61c;
+    color: #fff;
+    padding: 15px;
+    letter-spacing: 2px;
+}
+/*input muotoilu*/
+.form{
+    width: 20%;
+    margin-top: 70px;
+}
+
+/* välilehden/tabin väri */
+.ui.tabular.menu, .ui.tabular.menu .item{ 
+    color: #0fc61c;
+}
+
+/*taulukon otsikon tyyli*/
+#headColor th{
+    font-size: 14px;
+    font-weight: 500;
+    color: #99a0aa;
+}
