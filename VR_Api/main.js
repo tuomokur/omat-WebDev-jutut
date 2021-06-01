@@ -64,47 +64,6 @@ function findStationName(key){
 }
 
 
-
-
-// hakutoiminto enterin painamisella
-$("#searchInput").keypress(function(event) {
-  if (event.keyCode === 13) {
-    var search = ($("#searchInput").val());
-    var stationShort = findStationShort(search);
-    $.getJSON("https://rata.digitraffic.fi/api/v1/live-trains/station/"+ stationShort + "?arrived_trains=0&arriving_trains=11&departed_trains=0&departing_trains=0&include_nonstopping=false", function(data){ 
-
-    var trainData = '';
-    // sekä olioiden iterointi ja asetus taulukkoon
-    $.each(data, function(key, value){
-      trainData += '<tr>';
-      trainData += '<td>'+value.trainType+' '+value.trainNumber+' </td>';
-      // haetaan aseman nimi lyhenteen perusteella
-
-      var shortCodeArr = (value.timeTableRows)[0].stationShortCode;
-      var nameArr = findStationName(shortCodeArr);
-      
-      
-      trainData += '<td>'+nameArr+' </td>';
-
-      var shortCodeDep = (value.timeTableRows)[value.timeTableRows.length-1].stationShortCode;
-      var nameDep = findStationName(shortCodeDep);
-
-
-      trainData += '<td>'+nameDep+' </td>';
-      trainData += '<td>'+(value.timeTableRows)[0].scheduledTime+' </td>';
-      trainData += '</tr>';
-      });
-
-      $('#trainTableArriving').append(trainData);    
-
-    });
-  }
-});
-
-
-
-
-/*
 // hakutoiminto enterin painamisella
 $("#searchInput").keypress(function(event) {
   if (event.keyCode === 13) {
@@ -151,4 +110,47 @@ $("#searchInput").keypress(function(event) {
   }
 });
 
+
+/*
+// hakutoiminto enterin painamisella
+$("#searchInput").keypress(function(event) {
+  if (event.keyCode === 13) {
+    var search = ($("#searchInput").val());
+    var stationShort = findStationShort(search);
+    $.getJSON("https://rata.digitraffic.fi/api/v1/live-trains/station/"+ stationShort + "?arrived_trains=0&arriving_trains=11&departed_trains=0&departing_trains=0&include_nonstopping=false", function(data){ 
+
+    var trainData = '';
+    // sekä olioiden iterointi ja asetus taulukkoon
+    $.each(data, function(key, value){
+      trainData += '<tr>';
+      trainData += '<td>'+value.trainType+' '+value.trainNumber+' </td>';
+      // haetaan aseman nimi lyhenteen perusteella
+
+      var shortCodeArr = (value.timeTableRows)[0].stationShortCode;
+      var nameArr = findStationName(shortCodeArr);
+      
+      
+      trainData += '<td>'+nameArr+' </td>';
+
+      var shortCodeDep = (value.timeTableRows)[value.timeTableRows.length-1].stationShortCode;
+      var nameDep = findStationName(shortCodeDep);
+
+
+      trainData += '<td>'+nameDep+' </td>';
+      trainData += '<td>'+(value.timeTableRows)[0].scheduledTime+' </td>';
+      trainData += '</tr>';
+      });
+
+      $('#trainTableArriving').append(trainData);    
+
+    });
+  }
+});
 */
+
+
+
+
+
+
+
